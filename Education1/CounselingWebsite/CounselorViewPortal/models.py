@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.core.urlresolvers import reverse
 # Create your models here.
 class Student(models.Model):
     studentID = models.CharField(max_length=10)
@@ -15,6 +15,9 @@ class Student(models.Model):
     trackRepID = models.CharField(max_length=50)
     program = models.CharField(max_length=50)
 
+    def get_absolute_url(self):
+        return reverse("student:index")
+
     def __str__(self):
         return self.studentID
 
@@ -23,6 +26,8 @@ class Counselor(models.Model):
     counselorLName = models.CharField(max_length=50)
     counselorMName = models.CharField(max_length=50)
     counselorFName = models.CharField(max_length=50)
+    def __str__(self):
+        return self.counselorID
 class Appointment(models.Model):
     appointmentID = models.CharField(max_length=10)
     studentID = models.CharField(max_length=10)
@@ -36,6 +41,8 @@ class Appointment(models.Model):
     requestDate = models.DateTimeField(max_length=50)
     requestStartTime = models.DateTimeField(max_length=50)
     requestEndTime = models.DateTimeField(max_length=50)
+    def __str__(self):
+        return self.appointmentID
 class Profile(models.Model):
     profileID = models.CharField(max_length=10)
     studentID = models.CharField(max_length=10)
@@ -43,3 +50,5 @@ class Profile(models.Model):
     Seq = models.CharField(max_length=100)
     Label = models.CharField(max_length=100)
     Value = models.CharField(max_length=100)
+    def __str__(self):
+        return self.profileID
