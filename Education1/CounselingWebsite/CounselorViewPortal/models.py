@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Student(models.Model):
-    studentID = models.CharField(max_length=10, primary_key=True)
+    studentID = models.CharField(max_length=10)
     studentLName = models.CharField(max_length=50)
     studentMName = models.CharField(max_length=50)
     studentFName = models.CharField(max_length=50)
@@ -14,15 +14,19 @@ class Student(models.Model):
     zip = models.CharField(max_length=50)
     trackRepID = models.CharField(max_length=50)
     program = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.studentID
+
 class Counselor(models.Model):
-    counselorID = models.CharField(max_length=10, primary_key=True)
+    counselorID = models.CharField(max_length=10)
     counselorLName = models.CharField(max_length=50)
     counselorMName = models.CharField(max_length=50)
     counselorFName = models.CharField(max_length=50)
 class Appointment(models.Model):
-    appointmentID = models.CharField(max_length=10, primary_key=True)
-    studentID = models.ForeignKey(Student)
-    counselorID = models.ForeignKey(Counselor)
+    appointmentID = models.CharField(max_length=10)
+    studentID = models.CharField(max_length=10)
+    counselorID = models.CharField(max_length=10)
     aStartTime = models.DateTimeField(max_length=10)
     aEndTime = models.DateTimeField(max_length=50)
     aDate = models.DateTimeField(max_length=50)
@@ -33,8 +37,8 @@ class Appointment(models.Model):
     requestStartTime = models.DateTimeField(max_length=50)
     requestEndTime = models.DateTimeField(max_length=50)
 class Profile(models.Model):
-    profileID = models.CharField(max_length=10,primary_key=True)
-    studentID = models.ForeignKey(Student)
+    profileID = models.CharField(max_length=10)
+    studentID = models.CharField(max_length=10)
     Cat = models.CharField(max_length=50)
     Seq = models.CharField(max_length=100)
     Label = models.CharField(max_length=100)
