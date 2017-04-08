@@ -23,6 +23,6 @@ app_name = 'student'
 
 urlpatterns = [
 url(r'^$', views.index, name="index"),
-url(r'^(?P<studentID>[0-9]+)/$', views.detail, name="detail"),
+url(r'^(?P<studentID>S[0-9]+)/$', views.detail, name="detail"),
 url(r'^see/student', views.StudentLogin.as_view(), name="student-login"),
 ]

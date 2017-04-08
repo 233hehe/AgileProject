@@ -18,8 +18,8 @@ def index(request):
     return render(request,'CounselorViewPortal/index.html')
     # return HttpResponse(template.render(context,request))
 
-def detail(request, studentId):
-    return HttpResponse("<h2>Details for Student ID : " + str(studentId) + "</h2>")
+def detail(request, studentID):
+    return HttpResponse("<h2>Details for Student ID : " + str(studentID) + "</h2>")
 
 class StudentLogin(CreateView):
     model=Student
