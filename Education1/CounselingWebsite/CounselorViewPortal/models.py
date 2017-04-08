@@ -15,8 +15,11 @@ class Student(models.Model):
     trackRepID = models.CharField(max_length=50)
     program = models.CharField(max_length=50)
 
+<<<<<<< HEAD
     def get_absolute_url(self):
         return reverse("student:index")
+=======
+>>>>>>> origin/master
     def __str__(self):
         return self.studentID
 
